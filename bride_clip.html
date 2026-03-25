@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body, html { 
+        margin: 0; 
+        padding: 0; 
+        width: 100%; 
+        height: 100%; 
+        background: #000; 
+        overflow: hidden; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    img { 
+        max-width: 100%; 
+        max-height: 100%; 
+        object-fit: contain; 
+    }
+</style>
+</head>
+<body>
+    <img id="player" src="media/bride/ezgif-frame-001.jpg" alt="Animated Bride Clip">
+    <script>
+        const totalFrames = 152;
+        // Target: 6 seconds = 6000ms. 
+        // 6000ms / 152 frames = Exactly ~39.47 milliseconds per frame
+        const frameTime = 6000 / totalFrames; 
+        const player = document.getElementById('player');
+        
+        // 1. Preload all images directly into browser memory for zero-lag, buttery smooth playback
+        const images = [];
+        for(let i = 1; i <= totalFrames; i++) {
+            const img = new Image();
+            // Pad the number to 3 digits (e.g., 001, 002 ... 152) to match ezgif filenames
+            const numStr = i.toString().padStart(3, '0');
+            img.src = `media/bride/ezgif-frame-${numStr}.jpg`;
+            images.push(img);
+        }
+
+        // 2. Play the animation sequence
+        let currentFrame = 1;
+        setInterval(() => {
+            currentFrame++;
+            // Loop back to 1 seamlessly when it reaches the end
+            if(currentFrame > totalFrames) currentFrame = 1; 
+            
+            // Swap the image to the next preloaded frame (array is 0-indexed)
+            player.src = images[currentFrame - 1].src;
+        }, frameTime);
+    </script>
+</body>
+</html>
