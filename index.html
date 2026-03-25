@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingveen Royal Creations | Cinematic Wedding Invitations</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-dark: #070000;
+            --bg-light: #2a0000;
+            --gold-light: #ffd700;
+            --gold-mid: #d4af37;
+            --gold-dark: #8a6a1b;
+            --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #ffd700, #fcf6ba, #b8860b);
+            --glass-bg: rgba(20, 0, 0, 0.6);
+            --glass-border: rgba(255, 215, 0, 0.3);
+            --text-main: #ffffff;
+            --text-muted: #d0d0d0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 50%, var(--bg-dark) 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Cursor Spotlight */
+        .cursor-glow {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* Extraordinary Gold Shine */
+        .gold-text {
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Mandala Layers */
+        .mandala-bg {
+            position: fixed;
+            width: 1000px;
+            height: 1000px;
+            border-radius: 50%;
+            background: url('https://www.transparenttextures.com/patterns/mandala.png');
+            opacity: 0.03;
+            z-index: -1;
+            pointer-events: none;
+            animation: rotateMandala 120s linear infinite;
+        }
+
+        .mandala-1 { top: -200px; right: -200px; }
+        .mandala-2 { bottom: -300px; left: -300px; animation-direction: reverse; }
+
+        @keyframes rotateMandala {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 8%),
+                radial-gradient(circle at center, rgba(255, 215, 0, 0.05) 0%, transparent 5%);
+            background-size: 100px 100px, 60px 60px;
+            animation: particleDrift 20s linear infinite;
+        }
+
+        @keyframes particleDrift {
+            0% { background-position: 0px 0px, 0px 0px; }
+            100% { background-position: 100px 100px, -60px 60px; }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Layout & Sections */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--bg-dark);
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            color: #000;
+        }
+
+        /* Extraordinary Section Transitions */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            animation: fadeInDown 1.2s ease forwards;
+            opacity: 0;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero .btn {
+            animation: fadeIn 1.2s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: 65vh;
+            object-fit: contain;
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+            animation: floatingLogo 6s ease-in-out infinite, logoFlare 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            pointer-events: none;
+            position: relative;
+        }
+
+        @keyframes logoFlare {
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4)) brightness(1); }
+            50% { filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.8)) brightness(1.2); }
+        }
+
+        @keyframes floatingLogo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Services Section */
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateX(10deg) rotateY(10deg);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 40px rgba(255, 215, 0, 0.3);
+            border-color: var(--gold-light);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover::after {
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold-light);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease-in-out;
+        }
+
+        /* Placeholder images using CSS gradients */
+        .portfolio-item.thumb-1 { background: url('bride/ezgif-frame-001.jpg') center/cover no-repeat, #1a0000; }
+        .portfolio-item.thumb-2 { background: url('god/ezgif-frame-001.jpg') center/cover no-repeat, #1a0000; }
+        .portfolio-item.thumb-3 { background: url('groom/ezgif-frame-001.jpg') center/cover no-repeat, #1a0000; }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+            border-color: var(--gold-light);
+        }
+
+        .portfolio-item:hover::before {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .play-btn i {
+            color: var(--bg-dark);
+            font-size: 1.5rem;
+            margin-left: 5px;
+        }
+
+        .portfolio-item:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Template Slider Layout */
+        .template-slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 40px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .template-track {
+            display: flex;
+            gap: 40px;
+            width: max-content;
+            animation: scrollSlider 30s linear infinite;
+        }
+
+        .template-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollSlider {
+            0% { transform: translateX(0); }
+            /* Moving exactly half the track width (including gap) to loop seamlessly */
+            100% { transform: translateX(calc(-50% - 20px)); }
+        }
+
+        /* Template Gallery Section */
+        .template-card {
+            width: 350px;
+            flex-shrink: 0;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(15px);
+            transform-style: preserve-3d;
+        }
+
+        .template-card:hover {
+            transform: translateY(-15px) rotateX(8deg) rotateY(8deg);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 40px rgba(255, 215, 0, 0.3);
+            border-color: var(--gold-light);
+        }
+
+        .template-img-wrapper {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .template-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .template-card:hover .template-img {
+            transform: scale(1.08);
+        }
+
+        .template-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .template-card:hover .template-overlay {
+            opacity: 0.8;
+        }
+
+        .template-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .template-title {
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .btn-preview {
+            background: transparent;
+            border: 1px solid var(--gold-light);
+            color: var(--gold-light);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .btn-preview:hover {
+            background: var(--gold-gradient);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Image Modal */
+        #imgModal .modal-content {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            aspect-ratio: auto;
+        }
+
+        #imgModal img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 2px solid var(--gold-dark);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #imgModal.active img {
+            transform: scale(1);
+        }
+
+        /* Pricing Section */
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold-dark);
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--gold-light));
+            animation: rotateGlow 4s linear infinite;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pricing-badge {
+            background: var(--gold-gradient);
+            color: var(--bg-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-family: var(--font-heading);
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .price span {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features i {
+            color: var(--gold-light);
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .signature {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 150px;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn-whatsapp:hover::before {
+            left: 100%;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulseWA 2s infinite;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulseWA {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Video Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--gold-dark);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--gold-light);
+        }
+
+        #iframeContainer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframes */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.2rem; }
+            .price { font-size: 3rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animations -->
+    <div class="bg-animation"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="mandala-bg mandala-1"></div>
+    <div class="mandala-bg mandala-2"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- WhatsApp Integration is implemented directly on links -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="logo.jpg" alt="Kingveen Royal Creations Logo" class="hero-logo">
+        <a href="https://wa.me/919229840686?text=Hello%20I%20want%20a%20cinematic%20wedding%20invitation" class="btn" target="_blank">Book Your Invitation Now</a>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title gold-text reveal-up">Our Premium Services</h2>
+        <div class="services-grid">
+            <div class="service-card reveal-up">
+                <i class="fa-solid fa-cube service-icon"></i>
+                <h3>3D Wedding Invitation</h3>
+                <p>Immersive 3D animated invitations that tell your love story with breathtaking visuals and royal aesthetics.</p>
+            </div>
+            <div class="service-card reveal-up" style="transition-delay: 0.1s;">
+                <i class="fa-solid fa-film service-icon"></i>
+                <h3>Cinematic Video Invitation</h3>
+                <p>High-end cinematic video edits featuring elegant transitions, custom music, and premium typography.</p>
+            </div>
+            <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                <i class="fa-brands fa-instagram service-icon"></i>
+                <h3>Reels Editing</h3>
+                <p>Trending aesthetic reel and shorts editing optimized for social media to announce your big day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title gold-text reveal-up">Our Royal Gallery</h2>
+        <div class="portfolio-grid">
+            <!-- Video Item 1 -->
+            <!-- Cinematic Wedding Shorts -->
+            <div class="portfolio-item thumb-1 reveal-up" data-video-src="bride_clip.html" onclick="openModal(this)">
+                <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+            
+            <!-- Video Item 2 -->
+            <!-- God Clip (8 seconds) -->
+            <div class="portfolio-item thumb-2 reveal-up" style="transition-delay: 0.1s;" data-video-src="god_clip.html" onclick="openModal(this)">
+                <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+
+            <!-- Video Item 3 -->
+            <!-- Groom Clip (6 seconds) -->
+            <div class="portfolio-item thumb-3 reveal-up" style="transition-delay: 0.2s;" data-video-src="groom_clip.html" onclick="openModal(this)">
+                <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Templates Section -->
+    <section id="templates">
+        <h2 class="section-title gold-text reveal-up">Our Premium Invitation Templates</h2>
+        <div class="template-slider reveal-up">
+            <div class="template-track">
+                <!-- Original Batch -->
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template1.jpg')">
+                        <img src="template1.jpg" alt="Royal Red Theme" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Royal Red Theme</h3>
+                        <button class="btn-preview" onclick="openImgModal('template1.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template2.jpg')">
+                        <img src="template2.jpg" alt="Golden Temple" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Golden Temple</h3>
+                        <button class="btn-preview" onclick="openImgModal('template2.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template3.jpg')">
+                        <img src="template3.jpg" alt="Floral Pastel" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Floral Pastel</h3>
+                        <button class="btn-preview" onclick="openImgModal('template3.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template4.jpg')">
+                        <img src="template4.jpg" alt="Vintage Classic" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Vintage Classic</h3>
+                        <button class="btn-preview" onclick="openImgModal('template4.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template5.jpg')">
+                        <img src="template5.jpg" alt="Modern Minimal" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Modern Minimal</h3>
+                        <button class="btn-preview" onclick="openImgModal('template5.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template6.jpg')">
+                        <img src="template6.jpg" alt="Regal Ceremony" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Regal Ceremony</h3>
+                        <button class="btn-preview" onclick="openImgModal('template6.jpg')">Preview</button>
+                    </div>
+                </div>
+
+                <!-- Duplicated Batch for Infinite Loop -->
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template1.jpg')">
+                        <img src="template1.jpg" alt="Royal Red Theme" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Royal Red Theme</h3>
+                        <button class="btn-preview" onclick="openImgModal('template1.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template2.jpg')">
+                        <img src="template2.jpg" alt="Golden Temple" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Golden Temple</h3>
+                        <button class="btn-preview" onclick="openImgModal('template2.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template3.jpg')">
+                        <img src="template3.jpg" alt="Floral Pastel" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Floral Pastel</h3>
+                        <button class="btn-preview" onclick="openImgModal('template3.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template4.jpg')">
+                        <img src="template4.jpg" alt="Vintage Classic" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Vintage Classic</h3>
+                        <button class="btn-preview" onclick="openImgModal('template4.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template5.jpg')">
+                        <img src="template5.jpg" alt="Modern Minimal" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Modern Minimal</h3>
+                        <button class="btn-preview" onclick="openImgModal('template5.jpg')">Preview</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-img-wrapper" onclick="openImgModal('template6.jpg')">
+                        <img src="template6.jpg" alt="Regal Ceremony" class="template-img" loading="lazy">
+                        <div class="template-overlay"></div>
+                    </div>
+                    <div class="template-info">
+                        <h3 class="template-title">Regal Ceremony</h3>
+                        <button class="btn-preview" onclick="openImgModal('template6.jpg')">Preview</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title gold-text reveal-up">Pricing Overview</h2>
+        <div class="pricing-card reveal-up">
+            <div class="pricing-badge">PREMIUM QUALITY</div>
+            <div class="price"><span>Starts from</span> ₹299</div>
+            <ul class="pricing-features">
+                <li><i class="fa-solid fa-check-circle"></i> Full HD 1080p / 4K Export</li>
+                <li><i class="fa-solid fa-check-circle"></i> Custom Background Music</li>
+                <li><i class="fa-solid fa-check-circle"></i> Premium Typography & Animations</li>
+                <li><i class="fa-solid fa-check-circle"></i> Fast Delivery</li>
+            </ul>
+            <br>
+            <a href="https://wa.me/919229840686?text=Hello%20I%20want%20a%20cinematic%20wedding%20invitation" class="btn" style="width: 100%;" target="_blank">Get a Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-content reveal-up">
+            <h2 class="section-title gold-text">Crafting Memories</h2>
+            <p>At Kingveen Royal Creations, we believe your wedding invitation should be as majestic as the celebration itself. We specialize in designing cinematic, elegant, and soul-stirring digital invitations that blend traditional royal Indian aesthetics with modern 3D design.</p>
+            <p>Every frame is meticulously crafted to reflect the opulence, emotion, and grandeur of your love story. Let us create a breathtaking overture to your happily ever after.</p>
+            <div class="signature">Kingveen Royal Creations</div>
+        </div>
+    </section>
+
+    <!-- Contact & CTA Section -->
+    <section id="contact" class="contact-section reveal-up">
+        <h2 class="section-title gold-text">Begin Your Royal Journey</h2>
+        <p style="margin-bottom: 30px; color: var(--text-muted); font-size: 1.1rem;">Message us directly on WhatsApp to discuss your custom invitation.</p>
+        <a href="https://wa.me/919229840686?text=Hello%20I%20want%20a%20cinematic%20wedding%20invitation" class="btn-whatsapp" id="mainWaBtn" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kingveen Royal Creations. All rights reserved. | Cinematic 3D Wedding Invitations</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919229840686?text=Hello%20I%20want%20a%20cinematic%20wedding%20invitation" class="floating-wa" id="floatWaBtn" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal()"><i class="fa-solid fa-times"></i></div>
+            <div id="iframeContainer"></div>
+        </div>
+    </div>
+
+    <!-- Full-screen Image Modal -->
+    <div class="modal" id="imgModal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeImgModal()"><i class="fa-solid fa-times"></i></div>
+            <img id="modalImage" src="" alt="Template Preview">
+        </div>
+    </div>
+    <div id="cursorGlow" class="cursor-glow"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Cursor Glow
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Extra Premium Particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 70;
+            for(let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                const size = Math.random() * 5 + 1;
+                particle.className = 'particle-extra';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: radial-gradient(circle, #fff, var(--gold-light));
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    opacity: ${Math.random() * 0.6};
+                    filter: blur(${size < 3 ? '0px' : '2px'});
+                    box-shadow: 0 0 ${size}px var(--gold-light);
+                    animation: floatExtra ${Math.random() * 15 + 10}s linear infinite;
+                `;
+                container.appendChild(particle);
+            }
+        }
+
+        // Add 3D Tilt Effect to Cards
+        const cards = document.querySelectorAll('.service-card, .portfolio-item, .template-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xc = rect.width / 2;
+                const yc = rect.height / 2;
+                const dx = x - xc;
+                const dy = y - yc;
+                card.style.transform = `perspective(1000px) rotateX(${-dy / 20}deg) rotateY(${dx / 20}deg) translateY(-10px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatExtra {
+                0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        createParticles();
+
+        // Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal-up");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        setTimeout(reveal, 100);
+
+        // Video Modal System
+        const modal = document.getElementById('videoModal');
+        const iframeContainer = document.getElementById('iframeContainer');
+
+        function openModal(element) {
+            const videoSrc = element.getAttribute('data-video-src');
+            iframeContainer.innerHTML = `<iframe src="${videoSrc}" allow="autoplay"></iframe>`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            iframeContainer.innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Image Modal System
+        const imgModal = document.getElementById('imgModal');
+        const modalImage = document.getElementById('modalImage');
+
+        function openImgModal(src) {
+            modalImage.src = src;
+            imgModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImgModal() {
+            imgModal.classList.remove('active');
+            setTimeout(() => { modalImage.src = ''; }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeImgModal();
+            }
+        });
+
+        // Cinematic Auto-Play on Hover
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            const playBtn = item.querySelector('.play-btn');
+
+            item.addEventListener('mouseenter', () => {
+                if(playBtn) playBtn.style.opacity = '0'; // Hide play button smoothly
+                
+                // Spawn the cinematic sequence player instantly
+                if(!item.querySelector('.preview-iframe')) {
+                    const src = item.getAttribute('data-video-src');
+                    const iframe = document.createElement('iframe');
+                    iframe.src = src;
+                    iframe.className = 'preview-iframe';
+                    
+                    // Premium styling to make it fuse into the card seamlessly
+                    iframe.style.cssText = "position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; border:none; opacity:0; transition: opacity 0.5s ease-in-out;";
+                    
+                    // Fade it in majestically as soon as it initializes
+                    iframe.onload = () => { iframe.style.opacity = '1'; };
+                    item.appendChild(iframe);
+                } else {
+                    item.querySelector('.preview-iframe').style.opacity = '1';
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                if(playBtn) playBtn.style.opacity = '1'; // Bring play button back
+                
+                const iframe = item.querySelector('.preview-iframe');
+                if(iframe) {
+                    iframe.style.opacity = '0'; // Silently fade out
+                    setTimeout(() => iframe.remove(), 500); // Destroy iframe to conserve massive memory
+                }
+            });
+        });
+    </script>
+</body>
+</html>
